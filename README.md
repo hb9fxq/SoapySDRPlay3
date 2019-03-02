@@ -47,6 +47,7 @@ Probe device driver=sdrplay3
 The MIT License (MIT)
 
 Copyright (c) 2015 Charles J. Cliffe
+
 Copyright (c) 2019 Franco Venturi - changes for SDRplay API version 3
                                     and Dual Tuner for RSPduo
 
