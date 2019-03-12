@@ -130,6 +130,14 @@ static std::vector<SoapySDR::Kwargs> findSDRPlay3(const SoapySDR::Kwargs &args)
          results.push_back(dev);
       }
    }
+
+   // unlock sdrplay API and close it in case some other driver needs it
+   sdrplay_api_UnlockDeviceApi();
+   if (isSdrplayApiOpen == true)
+   {
+      sdrplay_api_Close();
+      isSdrplayApiOpen = false;
+   }
    return results;
 }
 
