@@ -54,7 +54,10 @@ SoapySDRPlay3::SoapySDRPlay3(const SoapySDR::Kwargs &args)
     sdrplay_api_ErrT err;
 
     if (isSdrplayApiOpen == false) {
-        sdrplay_api_Open();
+        sdrplay_api_ErrT err;
+        if ((err = sdrplay_api_Open()) != sdrplay_api_Success) {
+            return;
+        }
         isSdrplayApiOpen = true;
     }
 

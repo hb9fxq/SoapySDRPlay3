@@ -66,7 +66,11 @@ static std::vector<SoapySDR::Kwargs> findSDRPlay3(const SoapySDR::Kwargs &args)
 
    if (isSdrplayApiOpen == false)
    {
-      sdrplay_api_Open();
+      sdrplay_api_ErrT err;
+      if ((err = sdrplay_api_Open()) != sdrplay_api_Success)
+      {
+          return results;
+      }
       isSdrplayApiOpen = true;
    }
 
