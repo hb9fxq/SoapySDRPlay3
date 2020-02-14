@@ -148,12 +148,12 @@ void SoapySDRPlay3::ev_callback(sdrplay_api_EventT eventId, sdrplay_api_TunerSel
         sdrplay_api_PowerOverloadCbEventIdT powerOverloadChangeType = params->powerOverloadParams.powerOverloadChangeType;
         if (powerOverloadChangeType == sdrplay_api_Overload_Detected)
         {
-            sdrplay_api_Update(device.dev, device.tuner, sdrplay_api_Update_Ctrl_OverloadMsgAck);
+            sdrplay_api_Update(device.dev, device.tuner, sdrplay_api_Update_Ctrl_OverloadMsgAck, sdrplay_api_Update_Ext1_None);
             // OVERLOAD DETECTED
         }
         else if (powerOverloadChangeType == sdrplay_api_Overload_Corrected)
         {
-            sdrplay_api_Update(device.dev, device.tuner, sdrplay_api_Update_Ctrl_OverloadMsgAck);
+            sdrplay_api_Update(device.dev, device.tuner, sdrplay_api_Update_Ctrl_OverloadMsgAck, sdrplay_api_Update_Ext1_None);
             // OVERLOAD CORRECTED
         }
     }
